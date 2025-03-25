@@ -1,0 +1,24 @@
+/* Neomorphism shadow styles */
+.shadow-neo {
+  box-shadow: 5px 5px 30px #d9d9d9,
+             -5px -5px 30px #ffffff;
+}
+
+/* For buttons and interactive elements */
+.shadow-neo-inset {
+  box-shadow: inset 10px 10px 60px #d9d9d9,
+              inset -10px -10px 60px #ffffff;
+}
+
+/* For dark mode support */
+@media (prefers-color-scheme: dark) {
+  .shadow-neo {
+    box-shadow: 10px 10px 30px #d9d9d9,
+               -5px -5px 30px #d9d9d9;
+  }
+
+  .shadow-neo-inset {
+    box-shadow: inset 20px 20px 60px #1a1a1a,
+                inset -20px -20px 60px #2a2a2a;
+  }
+} 
