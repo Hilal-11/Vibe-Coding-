@@ -46,6 +46,13 @@ const Navigation = () => {
             >
               Login
             </motion.button>
+            {/* <motion.button
+                  whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(0,0,0,0.1)" }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-10 py-3 bg-blue-600 text-white rounded-sm font-semibold shadow-neo hover:bg-blue-700 transition-colors"
+                >
+                  Login
+                </motion.button> */}
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -99,6 +106,7 @@ const Navigation = () => {
                 >
                   Login
                 </motion.button>
+                
                 <motion.button
                   whileHover={{ x: 10 }}
                   className="w-full text-center px-20 py-3 rounded-md text-base font-medium text-white bg-black "
