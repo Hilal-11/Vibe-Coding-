@@ -60,7 +60,7 @@ export default App;`;
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="flex flex-wrap gap-4"
+            className="grid grid-cols-1 gap-4 md:flex md:flex-wrap md:gap-10 md:justify-center lg:flex lg:flex-wrap lg:gap-4"
           >
             <motion.button
               whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(0,0,0,0.1)" }}
