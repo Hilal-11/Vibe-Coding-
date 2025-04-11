@@ -34,41 +34,72 @@
 .container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 0.5rem;
   width: 100%;
+  
 }
 
 .section-title {
   text-align: center;
-  font-size: 3rem;
+  font-size: 3.5rem;
   color: #333;
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 3rem;
   background: #f0f0f0;
   padding: 1rem 2rem;
-  border-radius: 20px;
-  /* box-shadow: 10px 10px 20px #d1d1d1,
-              -10px -10px 20px #ffffff; */
+  
 }
 
 .projects-container {
   display: flex;
   flex-direction: column;
   gap: 4rem;
+  
 }
 
 .project-card {
   background: #f0f0f0;
   border-radius: 30px;
-  padding: 2rem;
+  padding: 2.5rem;
   box-shadow: 20px 20px 60px #d1d1d1,
-              -20px -20px 60px #ffffff;
-  transition: transform 0.3s ease;
+              -20px -20px 60px #ffffff,
+              inset 5px 5px 10px #d1d1d1,
+              inset -5px -5px 10px #ffffff;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(147, 197, 253, 0.3);
+  outline: 1px solid rgba(59, 130, 246, 0.2);
+  outline-offset: -1px;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 30px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(147, 197, 253, 0.4), rgba(59, 130, 246, 0.2));
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
 }
 
 .project-card:hover {
   transform: translateY(-5px);
+  box-shadow: 25px 25px 70px #d1d1d1,
+              -25px -25px 70px #ffffff,
+              inset 5px 5px 10px #d1d1d1,
+              inset -5px -5px 10px #ffffff;
+  border: 1px solid rgba(147, 197, 253, 0.4);
+  outline: 1px solid rgba(59, 130, 246, 0.3);
 }
 
 .project-content {
@@ -76,6 +107,8 @@
   width: 100%;
   gap: 3rem;
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
 .project-info {
@@ -84,6 +117,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background: #f0f0f0;
+  border-radius: 20px;
+  box-shadow: 10px 10px 20px #d1d1d1,
+              -10px -10px 20px #ffffff;
 }
 
 .project-title {
@@ -91,6 +128,7 @@
   margin-bottom: 1.5rem;
   color: #333;
   font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .project-description {
@@ -113,15 +151,25 @@
   align-items: center;
   justify-content: center;
   padding: 2rem;
+  background: #f0f0f0;
+  border-radius: 20px;
+  box-shadow: 10px 10px 20px #d1d1d1,
+              -10px -10px 20px #ffffff;
 }
 
 .project-image {
   width: 100%;
   height: 100%;
+  border-radius: 20px;
   object-fit: cover;
-  border-radius: 30px;
-  box-shadow: 20px 20px 40px #d1d1d1,
-              -20px -20px 40px #ffffff;
+  border-radius: 20px;
+  box-shadow: 15px 15px 30px #d1d1d1,
+              -15px -15px 30px #ffffff;
+  transition: transform 0.3s ease;
+}
+
+.project-image:hover {
+  transform: scale(1.02);
 }
 
 .neumorphic-button {
@@ -134,14 +182,19 @@
   font-size: 1.1rem;
   cursor: pointer;
   box-shadow: 8px 8px 15px #d1d1d1,
-              -8px -8px 15px #ffffff;
+              -8px -8px 15px #ffffff,
+              inset 2px 2px 5px #d1d1d1,
+              inset -2px -2px 5px #ffffff;
   transition: all 0.3s ease;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .neumorphic-button:hover {
   box-shadow: 5px 5px 10px #d1d1d1,
-              -5px -5px 10px #ffffff;
+              -5px -5px 10px #ffffff,
+              inset 2px 2px 5px #d1d1d1,
+              inset -2px -2px 5px #ffffff;
   transform: translateY(-2px);
 }
 
@@ -152,12 +205,25 @@
   }
 
   .project-info {
-    padding: 1rem;
+    padding: 1.5rem;
   }
 
   .project-image-container {
-    padding: 1rem;
+    padding: 10px;
     height: 300px;
+    width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+  }
+
+  .project-image {
+    box-shadow: none;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    
   }
 
   .project-title {
@@ -171,5 +237,51 @@
   .section-title {
     font-size: 2rem;
     padding: 0.5rem 1rem;
+  }
+
+  .neumorphic-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .project-buttons {
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .project-card {
+    padding: 0;
+
+  }
+
+  .project-card::before {
+    display: none;
+  }
+
+  .projects-section {
+    padding: 10px;
+  }
+
+  .container {
+    padding: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .neumorphic-button {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.85rem;
+  }
+
+  .project-buttons {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 0.8rem;
+  }
+
+  .project-info {
+    padding: 1.5rem;
+    border-radius: 0;
+    box-shadow: none;
   }
 } 
