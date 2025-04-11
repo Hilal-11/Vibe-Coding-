@@ -159,14 +159,7 @@ const Projects = () => {
   return (
     <section className="projects-section">
       <div className="container">
-        <motion.h2
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="section-title"
-        >
-          Featured Projects
-        </motion.h2>
+        
         <div className="projects-container">
           {projects.map((project) => (
             <ProjectCard key={project.id} project={project} />

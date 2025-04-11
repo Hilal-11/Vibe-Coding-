@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { FaCode } from 'react-icons/fa';
+import { SiJavascript, SiTypescript, SiReact, SiNextdotjs, SiNodedotjs, SiTailwindcss } from 'react-icons/si';
 
 const Hero = () => {
   const codeExample = `import React from 'react';
@@ -25,9 +26,34 @@ const App = () => {
 
 export default App;`;
 
+  const techIcons = [
+    { icon: SiJavascript, color: '#F7DF1E', position: { top: '15%', left: '5%' } },
+    { icon: SiTypescript, color: '#3178C6', position: { top: '15%', right: '5%' } },
+    { icon: SiReact, color: '#61DAFB', position: { bottom: '20%', left: '5%' } },
+    { icon: SiNextdotjs, color: '#000000', position: { top: '45%', right: '5%' } },
+    { icon: SiNodedotjs, color: '#339933', position: { bottom: '20%', right: '5%' } },
+    { icon: SiTailwindcss, color: '#06B6D4', position: { top: '45%', left: '5%' } },
+  ];
+
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 py-20">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <div className="min-h-screen flex items-center justify-center px-4 py-20 relative overflow-hidden">
+      {/* Fixed Tech Icons */}
+      {techIcons.map(({ icon: Icon, color, position }, index) => (
+        <motion.div
+          key={index}
+         
+          className="tech-icon-container fixed"
+          style={{
+            ...position,
+            zIndex: 0,
+            transform: 'translateZ(0)',
+          }}
+        >
+          <Icon className="text-3xl" style={{ color }} />
+        </motion.div>
+      ))}
+
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
         {/* Left Content */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}

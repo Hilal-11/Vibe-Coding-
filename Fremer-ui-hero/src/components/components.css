@@ -26,7 +26,7 @@
 /* Projects Section Styles */
 .projects-section {
   min-height: 100vh;
-  background-color: #f0f0f0;
+  background-color: var(--bg-color);
   position: relative;
   padding: 4rem 0;
 }
@@ -34,38 +34,40 @@
 .container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 0.5rem;
+  padding: 0 2rem;
   width: 100%;
-  
 }
 
 .section-title {
   text-align: center;
-  font-size: 3.5rem;
-  color: #333;
+  font-size: 3rem;
+  color: var(--text-primary);
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 3rem;
-  background: #f0f0f0;
+  background: var(--card-bg);
   padding: 1rem 2rem;
-  
+  border-radius: 20px;
+  box-shadow: 15px 15px 30px var(--shadow-dark),
+              -15px -15px 30px var(--shadow-light),
+              inset 5px 5px 10px var(--shadow-dark),
+              inset -5px -5px 10px var(--shadow-light);
 }
 
 .projects-container {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: auto auto;
   gap: 4rem;
-  
 }
 
 .project-card {
-  background: #f0f0f0;
+  background: var(--card-bg);
   border-radius: 30px;
   padding: 2.5rem;
-  box-shadow: 20px 20px 60px #d1d1d1,
-              -20px -20px 60px #ffffff,
-              inset 5px 5px 10px #d1d1d1,
-              inset -5px -5px 10px #ffffff;
+  box-shadow: 20px 20px 60px var(--shadow-dark),
+              -20px -20px 60px var(--shadow-light),
+              inset 5px 5px 10px var(--shadow-dark),
+              inset -5px -5px 10px var(--shadow-light);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -94,16 +96,18 @@
 
 .project-card:hover {
   transform: translateY(-5px);
-  box-shadow: 25px 25px 70px #d1d1d1,
-              -25px -25px 70px #ffffff,
-              inset 5px 5px 10px #d1d1d1,
-              inset -5px -5px 10px #ffffff;
+  box-shadow: 25px 25px 70px var(--shadow-dark),
+              -25px -25px 70px var(--shadow-light),
+              inset 5px 5px 10px var(--shadow-dark),
+              inset -5px -5px 10px var(--shadow-light);
   border: 1px solid rgba(147, 197, 253, 0.4);
   outline: 1px solid rgba(59, 130, 246, 0.3);
 }
 
 .project-content {
-  display: flex;
+  /* display: flex; */
+  display: grid;
+  grid-template-columns: auto;
   width: 100%;
   gap: 3rem;
   align-items: center;
@@ -113,14 +117,15 @@
 
 .project-info {
   flex: 1;
+  order: 2;
   padding: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: #f0f0f0;
+  background: var(--card-bg);
   border-radius: 20px;
-  box-shadow: 10px 10px 20px #d1d1d1,
-              -10px -10px 20px #ffffff;
+  box-shadow: 10px 10px 20px var(--shadow-dark),
+              -10px -10px 20px var(--shadow-light);
 }
 
 .project-title {
@@ -151,10 +156,10 @@
   align-items: center;
   justify-content: center;
   padding: 2rem;
-  background: #f0f0f0;
+  background: var(--card-bg);
   border-radius: 20px;
-  box-shadow: 10px 10px 20px #d1d1d1,
-              -10px -10px 20px #ffffff;
+  box-shadow: 10px 10px 20px var(--shadow-dark),
+              -10px -10px 20px var(--shadow-light);
 }
 
 .project-image {
@@ -163,8 +168,8 @@
   border-radius: 20px;
   object-fit: cover;
   border-radius: 20px;
-  box-shadow: 15px 15px 30px #d1d1d1,
-              -15px -15px 30px #ffffff;
+  box-shadow: 15px 15px 30px var(--shadow-dark),
+              -15px -15px 30px var(--shadow-light);
   transition: transform 0.3s ease;
 }
 
@@ -176,29 +181,35 @@
   padding: 1rem 2rem;
   border: none;
   border-radius: 15px;
-  background: #f0f0f0;
-  color: #333;
+  background: var(--card-bg);
+  color: var(--text-primary);
   font-weight: 600;
   font-size: 1.1rem;
   cursor: pointer;
-  box-shadow: 8px 8px 15px #d1d1d1,
-              -8px -8px 15px #ffffff,
-              inset 2px 2px 5px #d1d1d1,
-              inset -2px -2px 5px #ffffff;
+  box-shadow: 8px 8px 15px var(--shadow-dark),
+              -8px -8px 15px var(--shadow-light),
+              inset 2px 2px 5px var(--shadow-dark),
+              inset -2px -2px 5px var(--shadow-light);
   transition: all 0.3s ease;
   text-decoration: none;
   white-space: nowrap;
 }
 
 .neumorphic-button:hover {
-  box-shadow: 5px 5px 10px #d1d1d1,
-              -5px -5px 10px #ffffff,
-              inset 2px 2px 5px #d1d1d1,
-              inset -2px -2px 5px #ffffff;
+  box-shadow: 5px 5px 10px var(--shadow-dark),
+              -5px -5px 10px var(--shadow-light),
+              inset 2px 2px 5px var(--shadow-dark),
+              inset -2px -2px 5px var(--shadow-light);
   transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {
+
+  .projects-container {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 4rem;
+  }
   .project-content {
     flex-direction: column;
     gap: 2rem;
@@ -283,5 +294,78 @@
     padding: 1.5rem;
     border-radius: 0;
     box-shadow: none;
+  }
+}
+
+/* Light Theme Variables */
+:root {
+  --bg-color: #f0f0f0;
+  --card-bg: #ffffff;
+  --shadow-dark: #d1d1d1;
+  --shadow-light: #ffffff;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --accent-color: #3b82f6;
+  --accent-light: #60a5fa;
+}
+
+/* Tech Icons Styles */
+.tech-icon-container {
+  position: fixed;
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  background: var(--card-bg);
+  padding: 1rem;
+  border-radius: 20px;
+  box-shadow: 8px 8px 15px var(--shadow-dark),
+              -8px -8px 15px var(--shadow-light),
+              inset 2px 2px 5px var(--shadow-dark),
+              inset -2px -2px 5px var(--shadow-light);
+  z-index: 0;
+  pointer-events: none;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.tech-icon-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+  transform: translateZ(-1px);
+  transition: all 0.3s ease;
+}
+
+.tech-icon-container svg {
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.1));
+  transition: all 0.3s ease;
+  width: 32px;
+  height: 32px;
+}
+
+@media (max-width: 768px) {
+  .tech-icon-container {
+    padding: 0.8rem;
+  }
+  
+  .tech-icon-container svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tech-icon-container {
+    padding: 0.6rem;
+  }
+  
+  .tech-icon-container svg {
+    width: 20px;
+    height: 20px;
   }
 } 
